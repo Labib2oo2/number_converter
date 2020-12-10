@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+
+<script>
+
+ function change(){
+ 
+ function play(name) { var audio = new Audio('./'+name); audio.play(); }
+ 
+ 
+function convert(num,base){
+ 
+   nm =  num.split(".");
+
+   var frac =0;
+   nm[0]=parseInt(num,base);
+   if(nm[1]==undefined){
+   nm[1]="0";
+   };
+   for(var i=1; i<=nm[1].length; i++){
+   
+   var ex = i*-1;
+   var point = parseInt(nm[1][i-1],base);
+   
+   frac+=point*base**ex; 
+   
+   };
+ return nm[0]+frac
+}
+
+ 
+ document.getElementById("abs").style.cssText="width:0; height:0;visibility:hidden;";
+document.getElementById("anm").style.cssText="width:0; height:0;visibility:hidden;";
+document.getElementById("ice_any").style.cssText="width:0; height:0;visibility:hidden;";
+document.getElementById("fourth").style.cssText="visibility:hidden;";
+
+document.getElementById("decimal").style.cssText="visibility:visible;width:100%;height:100px;";
+
+ 
+ var value = document.getElementById("select").value;
+ 
+ 
+ 
+ 
+ 
+ if(value ==2){
+ 
+ 
+  document.getElementById("first").innerHTML="Octal";
+ 
+document.getElementById("second").innerHTML="Decimal";
+ document.getElementById("third").innerHTML="Hexadecimal";
+ 
+ 
+ document.getElementById("decimal").addEventListener("keyup",function(){
+ 
+ var number = document. getElementById("decimal").value;
+ var int =convert(number,2);
+ 
+  document.getElementById("displayBin").innerHTML=int.toString(8);
+ 
+document.getElementById("displayOct").innerHTML=int.toString(10);
+ document.getElementById("displayHexadeci").innerHTML=int.toString(16);
+ 
+ 
+ }); //event
+ 
+ }else if(value ==8){
+ 
+ document.getElementById("first").innerHTML="Binary";
+ 
+document.getElementById("second").innerHTML="Decimal";
+ document.getElementById("third").innerHTML="Hexadecimal";
+ 
+ 
+ document.getElementById("decimal").addEventListener("keyup",function(){
+ 
+ var number = document. getElementById("decimal").value;
+ var int =convert(number,8);
+ 
+  document.getElementById("displayBin").innerHTML=int.toString(2);
+ 
+document.getElementById("displayOct").innerHTML=int.toString(10);
+ document.getElementById("displayHexadeci").innerHTML=int.toString(16);
+ 
+ 
+ 
+  });
+ 
+ }else if(value ==16){
+ 
+  document.getElementById("first").innerHTML="Binary";
+ 
+document.getElementById("second").innerHTML="Octal";
+ document.getElementById("third").innerHTML="Decimal";
+ 
+ 
+ 
+ 
+ document.getElementById("decimal").addEventListener("keyup",function(){
+ 
+ var number = document. getElementById("decimal").value;
+ var int =convert(number,16);
+ 
+  document.getElementById("displayBin").innerHTML=int.toString(2);
+ 
+document.getElementById("displayOct").innerHTML=int.toString(8);
+ document.getElementById("displayHexadeci").innerHTML=int.toString(10);
+ 
+ 
+ 
+  }); //event
+ 
+ 
+ 
+ 
+ 
+ }else if(value ==10){
+ 
+ play("10convert.com_TAHERI-TRAP-Official-Music-Video_94WO7PxoUIg.mp3");
+ document.getElementById("first").innerHTML="Binary";
+ 
+document.getElementById("second").innerHTML="Octal";
+ document.getElementById("third").innerHTML="Hexadecimal";
+ 
+ 
+ 
+ document.getElementById("decimal").addEventListener("keyup",function(){
+ 
+ var decimal = document. getElementById("decimal").value;
+ 
+ if(decimal == null){ alert("please input a number");}else {
+  
+ document.getElementById("displayBin").innerHTML=Number(decimal).toString(2);
+ 
+       document.getElementById("displayOct").innerHTML=Number(decimal).toString(8);
+       document.getElementById("displayHexadeci").innerHTML=Number(decimal).toString(16); 
+ }
+ 
+ });
+ 
+ 
+ }else if(value=="any"){
+ play("10convert.com_O-Murshid-O-Taheri-Hujur-New-Song-2020-Tor-laiga-re-Dj-Hasan_RZ7AXg5khUU.mp3");
+ document.getElementById("abs").style.cssText="width:100%; height:100px;visibility:visible;";
+document.getElementById("anm").style.cssText="width:100%; height:100px;visibility:visible;";
+document.getElementById("ice_any").style.cssText="width:100%; height:100px;visibility:visible;";
+document.getElementById("fourth").style.cssText="width:100%;height:100%;visibility:visible;";
+
+ document.getElementById("decimal").style.cssText="visibility:hidden;width:0;height:0;";
+ 
+ document.getElementById("first").innerHTML="Binary";
+ 
+document.getElementById("second").innerHTML="Octal";
+ document.getElementById("third").innerHTML="Decimal";
+
+ 
+
+document.getElementById("anm").addEventListener("keyup",function(){
+ 
+var anm=document.getElementById("anm").value;
+ var abs=document.getElementById("abs").value;
+
+var int =convert(anm,abs);
+ document.getElementById("displayBin").innerHTML=int.toString(2);
+ 
+       document.getElementById("displayOct").innerHTML=int.toString(8);
+       document.getElementById("displayHexadeci").innerHTML=int; 
+ document.getElementById("ice_any").innerHTML=int.toString(16); 
+
+ 
+ });
+ 
+ 
+ }; //if
+ 
+ }; // ()
+ 
+ 
+ function binary(){
+
+ var decimal = document. getElementById("decimal").value;
+ 
+  if(decimal == null){ alert("please input a number");}else {
+  
+ document.getElementById("displayBin").innerHTML=Number(decimal).toString(2);
+ 
+       document.getElementById("displayOct").innerHTML=Number(decimal).toString(8);
+       document.getElementById("displayHexadeci").innerHTML=Number(decimal).toString(16); 
+ }
+ 
+ };    
+</script>
+
+<style>
+
+ 
+  .wrapper{overflow:hidden;
+        width:350px;
+        height:900px;
+        background:black;
+        padding:30px;
+        border-radius:10px;
+        margin:auto;
+        border:.1px solid white;
+     }
+   input{ width:100%;
+        border-radius:10px;
+       height:100px;
+      background:black;
+       font-size:50px;
+       color:white;
+       border:.5px solid deepskyblue;
+       outline:0;
+       }
+       
+   
+       h1{overflow:scroll;
+       background:deepskyblue;
+       color:black;
+       border-radius:10px;
+       width:100%;
+       height:100px;
+       font-size:60px;
+       margin:0;
+       padding:0;
+       
+       } 
+       #anm,#abs,#fourth,#ice_any{
+       visibility:hidden;
+       width:0;
+       height:0;
+       
+       }
+       select{
+       width:100%;
+       height:50px;
+       border-radius:10px;
+       background:black;
+       color:white;
+       outline:0;
+       margin:5px;
+       font-size:40px;
+       border:2px solid white;
+       
+       }
+       p{
+       margin-top:10px;
+       color:white;
+       }
+       #anm,#abs{
+       margin-top:5px;
+       margin-bottom:0;
+       
+       }
+       input:hover{border:1.3px solid deepskyblue;}
+       
+       
+</style>
+<body>
+   <div class="wrapper">
+   
+    <div>
+    <select onchange="change()" id="select">
+    <option selected value="10">from decimal</option>
+<option value="2">from binary</option>
+<option value="8">from octal</option>
+<option value="16">from hexadecimal</option>
+<option value="any">Any </option>
+
+    </select>
+    <input id="anm" placeholder="Any number" type="" />
+        <input id="abs" placeholder="Any base" type="" />
+    
+        <input  id="decimal" type="" onkeyup="binary()"/>
+      
+      
+      <p id="first">binary</p>
+        <h1 id="displayBin"></h1>
+        
+      <p id="second">octal</p>
+        <h1 id="displayOct"></h1>
+     
+      <p id="third">hexadecimal</p>
+        <h1 id="displayHexadeci"></h1> 
+      <p id="fourth">hexadecimal</p>
+       <h1 id="ice_any"></h1>
+    </div>
+   
+</div>
+   
+</body>
+</html>
